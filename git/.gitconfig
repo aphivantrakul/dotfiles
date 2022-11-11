@@ -1,0 +1,18 @@
+[user]
+  name = Paul Aphivantrakul
+  email = aphivantrakul@gmail.com
+[difftool]
+  prompt = true
+[diff]
+  tool = nvim
+[merge]
+  tool = nvim
+[mergetool]
+  path = nvim
+[core]
+  editor = nvim
+[init]
+  defaultBranch = main
+[pull]
+  ff = only
+

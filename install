@@ -1,0 +1,48 @@
+#!/usr/bin/env sh
+
+rm -rf $HOME/.config/kitty
+ln -s $HOME/dotfiles/kitty $HOME/.config/kitty
+
+rm -rf $HOME/.oh-my-zsh/themes/paul.zsh-theme
+ln -s $HOME/dotfiles/oh-my-zsh/paul.zsh-theme $HOME/.oh-my-zsh/themes/paul.zsh-theme
+
+rm -rf $HOME/.zshrc
+ln -s $HOME/dotfiles/zsh/.zshrc $HOME/.zshrc
+
+rm -rf $HOME/.gitconfig
+ln -s $HOME/dotfiles/git/.gitconfig $HOME/.gitconfig
+
+rm -rf $HOME/.config/nvim
+ln -s $HOME/dotfiles/nvim $HOME/.config/nvim
+
+# install oh-my-zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
+# install zsh
+if [ $(sudo dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+  sudo apt install zsh;
+
+  # make zsh the default shell
+  chsh -s $(which zsh)
+fi
+
+# install fzf
+if [ $(sudo dpkg-query -W -f='${Status}' fzf 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+  sudo apt install fzf;
+fi
+
+# install ripgrep
+if [ $(sudo dpkg-query -W -f='${Status}' ripgrep 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+  sudo apt install ripgrep;
+fi
+
+# install cpp so that nvim treesitter can download and compile parsers
+if [ $(sudo dpkg-query -W -f='${Status}' cmake 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+  sudo apt install -y libboost-all-dev libssl-dev gcc g++ cmake
+fi
