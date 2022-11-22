@@ -4,10 +4,10 @@
 [difftool]
   prompt = true
 [diff]
-  tool = nvim
+  tool = vimdiff
 [merge]
-  tool = nvim
-[mergetool]
+  tool = vimdiff
+[mergetool "vimdiff"]
   path = nvim
 [core]
   editor = nvim

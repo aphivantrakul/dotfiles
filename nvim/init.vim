@@ -62,7 +62,7 @@
     " set foldexpr=nvim_treesitter#foldexpr()
   let g:netrw_sort_sequence = '[\/]$,*,\.bak$,\.o$,\.info$,\.swp$,\.obj$'
   " open NERDTree in full screen mode
-    let g:NERDTreeWinSize = 40
+    let g:NERDTreeWinSize = 30
   " hide ^G symbol in NERDTree side panel
     let g:NERDTreeNodeDelimiter = "\u00a0"
   " show hidden files in NERDTree by default
@@ -71,10 +71,8 @@
 " --------
 " Key Maps
 " --------
-  nnoremap <SPACE> <Nop>
+  nnoremap <SPACE> <nop>
   let mapleader=" "
-  " map <leader>p :CtrlP<CR>
-  " map <leader>b :CtrlPBuffer<CR>
   map <leader>b :BuffergatorToggle<CR>
   " noremap <leader>b :ls<cr>:b<space>
   map <leader>f :Files!<CR>
@@ -173,7 +171,7 @@
   nnoremap <leader>s :call ToggleScrollBind()<CR>
   " clear word search highlighting
     nnoremap <CR> :noh<CR><CR>
-  map <c-p> <Nop>
+  inoremap <c-p> <nop>
 
 " -------
 " Plugins
@@ -185,22 +183,14 @@
     endif
   " list of plugins to install
     call plug#begin('~/.vim/plugged')
-      " Plug 'ctrlpvim/ctrlp.vim'
       Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
       Plug 'junegunn/fzf.vim'
-      " Plug 'airblade/vim-rooter'
       Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
       Plug 'norcalli/nvim-colorizer.lua'
       Plug 'tpope/vim-commentary'
       Plug 'preservim/nerdtree'
-      " Plug 'nathanaelkane/vim-indent-guides'
       Plug 'tpope/vim-fugitive'
-      " Plug 'p00f/nvim-ts-rainbow'
       Plug 'nvim-treesitter/playground'
-      " Plug 'ggandor/leap.nvim'
-      " Plug 'neovim/nvim-lspconfig'
-      " Plug 'williamboman/mason.nvim'
-      " Plug 'williamboman/mason-lspconfig.nvim'
       Plug 'jeetsukumaran/vim-buffergator'
     call plug#end()
   " fzf
@@ -464,14 +454,13 @@ EOF
   hi @keyword guifg=#7759b4 ctermfg=167 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
   hi @keyword.operator guifg=#668e3d ctermfg=65 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
   hi @method guifg=#0584b3 ctermfg=25 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-  hi @namespace guifg=#8389a3 ctermfg=65 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+  hi @namespace guifg=#cc3768 ctermfg=65 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
   hi @number guifg=#c57339 ctermfg=65 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
   hi @operator guifg=#7759b4 ctermfg=97 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
   hi @parameter guifg=#2d539e ctermfg=25 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
   hi @preproc guifg=#7759b4 ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
   hi @property guifg=#cc3768 ctermfg=25 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-  hi @punctuation ctermfg=244 guifg=#7759b4
-  hi @punctuation.bracket ctermfg=244 guifg=#7759b4
+  hi @punctuation ctermfg=244 guifg=#8389a3
   hi @repeat guifg=#7759b4 ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
   hi @string guifg=#c57339 ctermfg=130 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
   hi @string.escape guifg=#c57339 ctermfg=130 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
